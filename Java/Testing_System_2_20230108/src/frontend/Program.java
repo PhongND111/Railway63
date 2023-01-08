@@ -23,6 +23,14 @@ public class Program {
 		department1.id = 1;
 		department1.name = "Sale";
 
+		Department department2 = new Department();
+		department2.id = 2;
+		department2.name = "HR";
+
+		Department department3 = new Department();
+		department3.id = 3;
+		department3.name = "Marketing";
+
 //		Tạo Position instance
 		Position position1 = new Position();
 		position1.id = 1;
@@ -49,6 +57,14 @@ public class Program {
 		account2.position = position1;
 		account2.createDate = LocalDate.now();
 
+		Account account3 = new Account();
+		account3.id = 3;
+		account3.email = "abc3@gmail.com";
+		account3.fullName = "Nguyen Van C";
+		account3.department = department1;
+		account3.position = position1;
+		account3.createDate = LocalDate.now();
+
 //		Tạo Group instance
 		Group group1 = new Group();
 		group1.id = 1;
@@ -58,7 +74,7 @@ public class Program {
 
 		Group group2 = new Group();
 		group2.id = 2;
-		group2.name = "Nhom 1";
+		group2.name = "Nhom 2";
 		group2.creator = account1;
 		group2.createDate = LocalDate.of(2022, 12, 1);
 
@@ -76,9 +92,15 @@ public class Program {
 		account1.groups = account1Groups;
 //		System.out.println("Thong tin group cua account 1: " + account1.groups[1].name);
 
-//		Account[] group1Accounts = { account1, account2 };
-//		group1.accounts = group1Accounts;
-//		System.out.println("Thong tin account thuoc group1: " + group1Accounts[0].fullName);
+		Group[] account2Groups = new Group[2];
+		account2Groups[0] = group1;
+		account2Groups[1] = group2;
+		account2.groups = account2Groups;
+
+// Add account vào group		
+		Account[] group1Accounts = { account1, account2 };
+		group1.accounts = group1Accounts;
+		System.out.println("Thong tin account thuoc group1: " + group1Accounts[0].fullName);
 
 ////		In Dept 1
 //		System.out.println("Thong tin department");
@@ -258,5 +280,133 @@ public class Program {
 		System.out.println("Cau hoi 1: " + exam1.questions[0].content);
 		System.out.println("Cau hoi 2: " + exam1.questions[1].content);
 		System.out.println("Cau hoi 3: " + exam1.questions[2].content);
+//-----------------------------------------------------------------
+// Exercise 1 - Question 1
+//		Kiểm tra account thứ 2
+//		Nếu không có phòng ban (tức là department == null) thì sẽ in ra text
+//		"Nhân viên này chưa có phòng ban"
+//		Nếu không thì sẽ in ra text "Phòng ban của nhân viên này là ..."	
+		System.out.println("\n");
+		System.out.println("-------------Exercise 1 - Question 1--------------");
+		if (account2.department == null) {
+			System.out.println("Nhân viên này chưa có phòng ban");
+		} else {
+			System.out.println("Phòng ban của nhân viên này là: " + account2.department.name);
+		}
+
+// Exercise 1 - Question 2
+//		Kiểm tra account thứ 2
+//		Nếu không có group thì sẽ in ra text "Nhân viên này chưa có group"
+//		Nếu có mặt trong 1 hoặc 2 group thì sẽ in ra text "Group của nhân viên
+//		này là Java Fresher, C# Fresher"
+//		Nếu có mặt trong 3 Group thì sẽ in ra text "Nhân viên này là người
+//		quan trọng, tham gia nhiều group"
+//		Nếu có mặt trong 4 group trở lên thì sẽ in ra text "Nhân viên này là
+//		người hóng chuyện, tham gia tất cả các group"
+		System.out.println("\n");
+		System.out.println("-------------Exercise 1 - Question 2--------------");
+//		int soGroupAcc2 = account2.groups.length;
+		if (account2.groups == null) {
+			System.out.println("Nhân viên này chưa có group");
+		} else if (account2.groups.length == 1 || account2.groups.length == 2) {
+			System.out
+					.println("Group của nhân viên này là: " + account2.groups[0].name + ", " + account2.groups[1].name);
+		} else if (account2.groups.length == 3) {
+			System.out.println("Nhân viên này là người quan trọng, tham gia nhiều group");
+		} else if (account2.groups.length == 4) {
+			System.out.println("Nhân viên này là người hóng chuyện, tham gia tất cả các group");
+		}
+
+//	Exercise 1 - Question 3:
+//			Sử dụng toán tử ternary để làm Question 1
+		System.out.println("\n");
+		System.out.println("-------------Exercise 1 - Question 3--------------");
+		System.out.println(account2.department == null ? "Nhân viên này chưa có phòng ban"
+				: "Phòng ban của nhân viên này là: " + account2.department.name);
+
+//		Exercise 1 - Question 4:
+//			Sử dụng toán tử ternary để làm yêu cầu sau:
+//			Kiểm tra Position của account thứ 1
+//			Nếu Position = Dev thì in ra text "Đây là Developer"
+//			Nếu không phải thì in ra text "Người này không phải là Developer"		
+		System.out.println("\n");
+		System.out.println("-------------Exercise 1 - Question 4--------------");
+		System.out.println(
+				account1.position.name == PositionName.Dev ? "Đây là Developer" : "Người này không phải là Developer");
+
+// Switch case		
+// Exercise 1 - Question 5
+//		Lấy ra số lượng account trong nhóm thứ 1 và in ra theo format sau:
+//			Nếu số lượng account = 1 thì in ra "Nhóm có một thành viên"
+//			Nếu số lượng account = 2 thì in ra "Nhóm có hai thành viên"
+//			Nếu số lượng account = 3 thì in ra "Nhóm có ba thành viên"
+//			Còn lại in ra "Nhóm có nhiều thành viên"	
+		System.out.println("\n");
+		System.out.println("-------------Exercise 1 - Question 5--------------");
+		if (group1.accounts == null) {
+			System.out.println("Nhóm chưa có thành viên nào.");
+		} else {
+//			int accNum = group1.accounts.length;
+//			switch (accNum) {
+			switch (group1.accounts.length) {
+			case 1:
+				System.out.println("Nhóm có một thành viên");
+				break;
+			case 2:
+				System.out.println("Nhóm có hai thành viên");
+				break;
+			case 3:
+				System.out.println("Nhóm có ba thành viên");
+				break;
+			default:
+				System.out.println("Nhóm có nhiều thành viên");
+				break;
+			}
+		}
+
+// Exercise 1 - Question 6:
+//			Sử dụng switch case để làm lại Question 2		
+		System.out.println("\n");
+		System.out.println("-------------Exercise 1 - Question 6--------------");
+		switch (account2.groups.length) {
+		case 0:
+			System.out.println("Nhân viên này chưa có group");
+			break;
+		case 1:
+			System.out
+					.println("Group của nhân viên này là: " + account2.groups[0].name + ", " + account2.groups[1].name);
+			break;
+		case 2:
+			System.out
+					.println("Group của nhân viên này là: " + account2.groups[0].name + ", " + account2.groups[1].name);
+			break;
+		case 3:
+			System.out.println("Nhân viên này là người quan trọng, tham gia nhiều group");
+			break;
+		case 4:
+			System.out.println("Nhân viên này là người hóng chuyện, tham gia tất cả các group");
+			break;
+		default:
+			break;
+		}
+
+// Foreach
+// Exercise 1 - Question 8
+//		In ra thông tin các account bao gồm: Email, FullName và tên phòng ban của họ
+		System.out.println("\n");
+		System.out.println("-------------Exercise 1 - Question 8--------------");
+		Account[] accounts = { account1, account2, account3 };
+		for (Account account : accounts) {
+			System.out.println(account);
+		}
+
+// Exercise 1 - Question 9
+//		In ra thông tin các phòng ban bao gồm: id và name
+		System.out.println("\n");
+		System.out.println("-------------Exercise 1 - Question 9--------------");
+		Department[] departmentsQ9 = { department1, department2, department3 };
+		for (Department departmentElement : departmentsQ9) {
+			System.out.println(departmentElement);
+		}
 	}
 }
