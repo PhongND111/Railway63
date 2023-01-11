@@ -1,6 +1,7 @@
 package frontend;
 
 import java.time.LocalDate;
+import java.util.Scanner;
 
 import entity.Account;
 import entity.Answer;
@@ -30,6 +31,14 @@ public class Program {
 		Department department3 = new Department();
 		department3.id = 3;
 		department3.name = "Marketing";
+
+		Department department4 = new Department();
+		department4.id = 4;
+		department4.name = "Development";
+
+		Department department5 = new Department();
+		department5.id = 5;
+		department5.name = "QA";
 
 //		Tạo Position instance
 		Position position1 = new Position();
@@ -62,8 +71,24 @@ public class Program {
 		account3.email = "abc3@gmail.com";
 		account3.fullName = "Nguyen Van C";
 		account3.department = department1;
-		account3.position = position1;
+		account3.position = position2;
 		account3.createDate = LocalDate.now();
+
+		Account account4 = new Account();
+		account4.id = 4;
+		account4.email = "abc4@gmail.com";
+		account4.fullName = "Nguyen Van D";
+		account4.department = department3;
+		account4.position = position1;
+		account4.createDate = LocalDate.now();
+
+		Account account5 = new Account();
+		account5.id = 5;
+		account5.email = "abc5@gmail.com";
+		account5.fullName = "Nguyen Van E";
+		account5.department = department2;
+		account5.position = position1;
+		account5.createDate = LocalDate.now();
 
 //		Tạo Group instance
 		Group group1 = new Group();
@@ -404,9 +429,213 @@ public class Program {
 //		In ra thông tin các phòng ban bao gồm: id và name
 		System.out.println("\n");
 		System.out.println("-------------Exercise 1 - Question 9--------------");
-		Department[] departmentsQ9 = { department1, department2, department3 };
+		Department[] departmentsQ9 = { department1, department2, department3, department4, department5 };
 		for (Department departmentElement : departmentsQ9) {
 			System.out.println(departmentElement);
+		}
+
+// Exercise 1 - Question 10:
+//			In ra thông tin các account bao gồm: Email, FullName và tên phòng ban của
+//			họ theo định dạng như sau:
+//			Thông tin account thứ 1 là:
+//			Email: NguyenVanA@gmail.com
+//			Full name: Nguyễn Văn A
+//			Phòng ban: Sale
+		System.out.println("\n");
+		System.out.println("-------------Exercise 1 - Question 10--------------");
+		Account[] accountsQ10 = { account1, account2, account3 };
+		for (int i = 0; i < accountsQ10.length; i++) {
+			System.out.println("Thông tin account thứ " + (i + 1) + " là:");
+			System.out.println("Email: " + accountsQ10[i].email);
+			System.out.println("Full name: " + accountsQ10[i].fullName);
+			System.out.println("Phòng ban: " + accountsQ10[i].department);
+			System.out.println("\n");
+		}
+
+// Exercise 1 - Question 11
+//		In ra thông tin các phòng ban bao gồm: id và name theo định dạng sau:
+//			Thông tin department thứ 1 là:
+//			Id: 1
+//			Name: Sale
+//			Thông tin department thứ 2 là:
+//			Id: 2
+//			Name: Marketing
+		System.out.println("\n");
+		System.out.println("-------------Exercise 1 - Question 11--------------");
+		Department[] departmentsQ11 = { department1, department2, department3, department4, department5 };
+		for (int i = 0; i < departmentsQ11.length; i++) {
+			System.out.println(departmentsQ11[i]);
+		}
+
+// Exercise 1 - Question 12
+//		Chỉ in ra thông tin 2 department đầu tiên theo định dạng như Question 10
+		System.out.println("\n");
+		System.out.println("-------------Exercise 1 - Question 12--------------");
+		Department[] departmentsQ12 = { department1, department2, department3, department4, department5 };
+		for (int i = 0; i < departmentsQ12.length; i++) {
+			if (departmentsQ12[i].id == 1 || departmentsQ12[i].id == 2) {
+				System.out.println(departmentsQ12[i]);
+			}
+		}
+
+// Exercise 1 - Question 13:
+//			In ra thông tin tất cả các account ngoại trừ account thứ 2
+		System.out.println("\n");
+		System.out.println("-------------Exercise 1 - Question 13--------------");
+		Department[] departmentsQ13 = { department1, department2, department3, department4, department5 };
+		for (int i = 0; i < departmentsQ13.length; i++) {
+			if (departmentsQ13[i].id == 2) {
+				continue;
+			}
+			System.out.println(departmentsQ13[i]);
+		}
+// Exercise 1 - Question 14
+//		In ra thông tin tất cả các account có id < 4
+		System.out.println("\n");
+		System.out.println("-------------Exercise 1 - Question 14--------------");
+		Account[] accountsQ14 = { account1, account2, account3, account4, account5 };
+		for (int i = 0; i < accountsQ14.length; i++) {
+			if (accountsQ14[i].id < 4) {
+				System.out.println("Thông tin account thứ " + (i + 1) + " là:");
+				System.out.println("Email: " + accountsQ14[i].email);
+				System.out.println("Full name: " + accountsQ14[i].fullName);
+				System.out.println("Phòng ban: " + accountsQ14[i].department);
+				System.out.println("\n");
+			}
+		}
+// Exercise 1 - Question 15:
+//			In ra các số chẵn nhỏ hơn hoặc bằng 20
+		System.out.println("\n");
+		System.out.println("-------------Exercise 1 - Question 15--------------");
+		for (int i = 0; i < 21; i++) {
+			if (i % 2 == 0) {
+				System.out.println(i);
+			}
+		}
+
+// Exercise 1 - Question 16-11 // WHILE
+//		In ra thông tin các phòng ban bao gồm: id và name theo định dạng sau:
+//		Thông tin department thứ 1 là:
+//		Id: 1
+//		Name: Sale
+		System.out.println("\n");
+		System.out.println("-------------Exercise 1 - Question 16-11--------------");
+		Department[] departments = { department1, department2, department3 };
+		int i = 0;
+		while (i < departments.length) {
+			System.out.println("Thông tin department thứ " + (i + 1) + " là:");
+			System.out.println("ID: " + departments[i].id);
+			System.out.println("Name: " + departments[i].name);
+			System.out.println("\n");
+			i++;
+		}
+
+// Exercise 1 - Question 16-12 // WHILE
+//		Chỉ in ra thông tin 2 department đầu tiên theo định dạng như Question 10
+//		System.out.println("\n");
+//		System.out.println("-------------Exercise 1 - Question 16-12--------------");
+		System.out.println("\n");
+		System.out.println("-------------Exercise 1 - Question 16-12--------------");
+		Department[] departmentsQ1612 = { department1, department2, department3, department4, department5 };
+		int i12 = 0;
+		while (departmentsQ1612[i12].id == 1 || departmentsQ1612[i12].id == 2) {
+			System.out.println(departmentsQ1612[i12]);
+			i12++;
+		}
+// Exercise 1 - Question 16-13 // WHILE
+//		In ra thông tin tất cả các account ngoại trừ account thứ 2
+		System.out.println("\n");
+		System.out.println("-------------Exercise 1 - Question 16-13--------------");
+		Department[] departmentsQ1613 = { department1, department2, department3, department4, department5 };
+		int i13 = 0;
+		while (i13 < departmentsQ1613.length) {
+			if (departmentsQ1613[i13].id != 2) {
+				System.out.println(departmentsQ1613[i13]);
+			}
+			i13++;
+		}
+
+//		Exercise 5: Input from console
+// Exercise 5 - Question 1
+//		Viết lệnh cho phép người dùng nhập 3 số nguyên vào chương trình
+//		System.out.println("\n");
+//		System.out.println("-------------Exercise 5 - Question 1--------------");
+//		Scanner scanner = new Scanner(System.in);
+//		System.out.println("Moi nhap vao 3 so nguyen");
+//		System.out.println("Moi nhap so nguyen thu 1");
+//		int so1 = scanner.nextInt();
+//		System.out.println("Moi nhap so nguyen thu 2");
+//		int so2 = scanner.nextInt();
+//		System.out.println("Moi nhap so nguyen thu 3");
+//		int so3 = scanner.nextInt();
+//		System.out.println("3 so nguyen ban da nhap vao lan luot la: " + so1 + ", " + so2 + ", " + so3 + ".");
+
+// Exercise 5 - Question 6
+//		Viết lệnh cho phép người dùng tạo department (viết thành method)
+//		System.out.println("\n");
+//		System.out.println("-------------Exercise 5 - Question 6--------------");
+//		Scanner scannerQ6 = new Scanner(System.in);
+//		try {
+//			System.out.println("Tao department moi");
+//			System.out.println("Moi ban nhap vao id:");
+//			int a = scannerQ6.nextInt();
+//			scannerQ6.nextLine();
+//			System.out.println("Moi ban nhap vao ten department");
+//			String bString = scannerQ6.nextLine();
+//
+//			Department departmentNewDepartment = new Department();
+//			departmentNewDepartment.id = a;
+//			departmentNewDepartment.name = bString;
+//
+//			System.out.println("Thong tin department moi tao:");
+//			System.out.println(departmentNewDepartment);
+//
+//		} finally {
+//			scannerQ6.close();
+//		}
+// lý do dùng hàm .close() là để tránh error "Resource leak"
+
+// Exercise 5 - Question 5
+//			Viết lệnh cho phép người dùng tạo account (viết thành method)
+//			Đối với property Position, Người dùng nhập vào 1 2 3 4 5 và vào
+//			chương trình sẽ chuyển thành Position.Dev, Position.Test,
+//			Position.ScrumMaster, Position.PM		
+		System.out.println("\n");
+		System.out.println("-------------Exercise 5 - Question 5--------------");
+		Scanner scannerQ5 = new Scanner(System.in);
+		System.out.println("Moi nhap thong tin account");
+		System.out.println("Moi nhap thong tin id");
+		int idQ5 = scannerQ5.nextInt();
+		System.out.println("Moi nhap thong tin email");
+		String emailQ5 = scannerQ5.next();
+		System.out.println("Moi nhap ho ten");
+		String fullNameQ5 = scannerQ5.next();
+		System.out.println("Moi nhap thong tin department");
+		int depQ5 = scannerQ5.nextInt();
+		System.out.println("Moi nhap thong tin position id, trong 1 la Dev, 2 la PM");
+		int posQ5 = scannerQ5.nextInt();
+
+		switch (posQ5) {
+		case 1:
+			Account accountNewAccount = new Account();
+			accountNewAccount.id = idQ5;
+			accountNewAccount.email = emailQ5;
+			accountNewAccount.fullName = fullNameQ5;
+			accountNewAccount.department = department1; // chưa xử lý được đoạn này
+			accountNewAccount.position = position1;
+			System.out.println(accountNewAccount);
+			break;
+		case 2:
+			Account accountNewAccount2 = new Account();
+			accountNewAccount2.id = idQ5;
+			accountNewAccount2.email = emailQ5;
+			accountNewAccount2.fullName = fullNameQ5;
+			accountNewAccount2.department = department1;
+			accountNewAccount2.position = position2;
+			System.out.println(accountNewAccount2);
+			break;
+		default:
+			break;
 		}
 	}
 }

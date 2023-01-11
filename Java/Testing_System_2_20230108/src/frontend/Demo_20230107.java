@@ -53,6 +53,33 @@ public class Demo_20230107 {
 		for (String nameStudent : nameRailway63) {
 			System.out.println(nameStudent);
 		}
+
+// While
+		System.out.println("----------------While--------------");
+		int i = 1;
+		while (i < 11) {
+			System.out.println(i);
+			i++;
+		}
+
+// Break
+		System.out.println("----------------Break--------------");
+		for (int j = 0; j < 10; j++) {
+			if (j == 3) {
+				break;
+			}
+			System.out.println(j);
+		}
+
+// Continue
+		System.out.println("----------------Continue--------------");
+		for (int j = 0; j < 10; j++) {
+			if (j == 3) {
+				continue;
+			}
+			System.out.println(j);
+		}
+
 	}
 
 }

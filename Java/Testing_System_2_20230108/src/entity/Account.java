@@ -14,6 +14,7 @@ public class Account {
 
 	@Override
 	public String toString() {
-		return "Email: " + email + ", Full name: " + fullName + ", Department: " + department.name;
+		return "Email: " + email + ", Full name: " + fullName + ", Department: " + department.name + ", Position: "
+				+ position;
 	}
 }
