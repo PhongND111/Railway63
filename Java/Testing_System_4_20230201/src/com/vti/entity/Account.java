@@ -11,7 +11,6 @@ public class Account {
 
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
 		return "ID: " + id + ", Email: " + email + "\n" + ", Fullname: " + fullname + ", Position: " + position + "\n"
 				+ "Create date: " + createDate;
 	}
