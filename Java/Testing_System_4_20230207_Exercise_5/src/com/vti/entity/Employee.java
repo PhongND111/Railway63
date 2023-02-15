@@ -21,4 +21,11 @@ public class Employee extends Staff {
 		// TODO Auto-generated constructor stub
 	}
 
+	@Override
+	public String toString() {
+		return "Thông tin employee" + "\n" + "ID: " + super.getId() + "\n" + "Name: " + super.getName() + "\n"
+				+ "Gender: " + super.getGender() + "\n" + "Address: " + super.getAddress() + "\n" + "Job: " + job
+				+ "\n";
+	}
+
 }

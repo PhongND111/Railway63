@@ -36,4 +36,7 @@ public class Staff {
 		this.gender = gender;
 	}
 
+	public void showInfo() {
+		System.out.println("Há lô đây là nội dung từ class Staff");
+	}
 }

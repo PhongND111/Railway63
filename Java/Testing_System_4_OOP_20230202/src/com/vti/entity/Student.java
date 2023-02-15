@@ -41,4 +41,10 @@ public class Student extends Staff {
 //		return "ID: " + this.getId() + "\n" + "Name: " + this.getName() + "\n" + "Hometown: " + this.getHometown()
 //				+ "\n" + "Hoc luc: " + this.getHocluc();
 //	}
+
+	@Override
+	public void showInfo() {
+		super.showInfo();
+	}
+
 }

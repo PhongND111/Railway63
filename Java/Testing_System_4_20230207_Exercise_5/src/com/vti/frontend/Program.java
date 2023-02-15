@@ -25,7 +25,7 @@ public class Program {
 				exerciseBackend1.searchByName();
 				break;
 			case 3:
-				exerciseBackend1.printListStaff();
+				exerciseBackend1.printListStaff2();
 				break;
 			case 4:
 				exerciseBackend1.deleteByName();
@@ -36,5 +36,6 @@ public class Program {
 			}
 
 		}
+
 	}
 }
