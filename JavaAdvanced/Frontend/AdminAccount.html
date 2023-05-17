@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- Latest compiled and minified CSS & JS -->
+    <link
+      rel="stylesheet"
+      media="screen"
+      href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"
+    />
+    <script src="//code.jquery.com/jquery.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+    <!-- mũi tên sort -->
+    <link
+      href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <!-- nhập thông tin -->
+      <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <form>
+            <h3>Quản lý thông tin</h3>
+
+            <div class="form-group">
+              <label for="">ID</label>
+              <input
+                type="text"
+                class="form-control"
+                id="ID_ID"
+                placeholder="ID"
+              />
+
+              <label for="">Email</label>
+              <input
+                type="text"
+                class="form-control"
+                id="Email_ID"
+                placeholder="Email"
+              />
+              <label for="">Username</label>
+              <input
+                type="text"
+                class="form-control"
+                id="Username_ID"
+                placeholder="Username"
+              />
+              <label for="">Fullname</label>
+              <input
+                type="text"
+                class="form-control"
+                id="Fullname_ID"
+                placeholder="Fullname"
+              />
+
+              <label for="">Select a department</label>
+              <select name="" id="SelectDep_ID" class="form-control">
+                <option>--Select a Department--</option>
+                <!-- <option>Accounting</option>
+                <option>Business Development</option>
+                <option>Engineering</option>
+                <option>Human Resources</option>
+                <option>Research and Development</option> -->
+              </select>
+
+              <label for="">Select a Position</label>
+              <select name="" id="SelectPos_ID" class="form-control">
+                <option>--Select a Position--</option>
+                <!-- <option>Developer</option>
+                <option>Tester</option>
+                <option>Scrum Master</option>
+                <option>PM</option> -->
+              </select>
+
+              <label for="">Create Date</label>
+              <input
+                type="date"
+                class="form-control"
+                id="CreateDate_ID"
+                placeholder="Input field"
+              />
+            </div>
+
+            <button type="button" class="btn btn-primary" id="save_btn">
+              Save
+            </button>
+            <button type="button" class="btn btn-primary" id="update_btn">
+              Update
+            </button>
+            <button type="button" class="btn btn-primary" id="reset_btn">
+              Reset
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ô search -->
+
+    <br />
+
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+          <input
+            type="text"
+            class="form-control"
+            id="Search_input"
+            placeholder="Search Full name, Email, Department"
+          />
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+          <input
+            type="button"
+            class="btn btn-success"
+            id="Search_btn"
+            value="Search"
+            onclick="handleSearch()"
+          />
+        </div>
+      </div>
+    </div>
+
+    <br />
+
+    <!-- Bảng kết quả -->
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="form">
+            <h3>Thông tin nhân viên trên hệ thống</h3>
+
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>
+                    ID
+                    <i class="fa fa-fw fa-sort" onclick="handleSort('id')"></i>
+                  </th>
+                  <th>
+                    Email
+                    <i
+                      class="fa fa-fw fa-sort"
+                      onclick="handleSort('email')"
+                    ></i>
+                  </th>
+                  <th>
+                    Username
+                    <i
+                      class="fa fa-fw fa-sort"
+                      onclick="handleSort('username')"
+                    ></i>
+                  </th>
+                  <th>
+                    Fullname
+                    <i
+                      class="fa fa-fw fa-sort"
+                      onclick="handleSort('fullname')"
+                    ></i>
+                  </th>
+                  <th>
+                    Department
+                    <i
+                      class="fa fa-fw fa-sort"
+                      onclick="handleSort('department')"
+                    ></i>
+                  </th>
+                  <th>
+                    Position
+                    <i
+                      class="fa fa-fw fa-sort"
+                      onclick="handleSort('position')"
+                    ></i>
+                  </th>
+                  <th>
+                    Cretate Date
+                    <i
+                      class="fa fa-fw fa-sort"
+                      onclick="handleSort('createDate')"
+                    ></i>
+                  </th>
+                  <th>
+                    Edit
+                    <i class="fa fa-fw fa-sort"></i>
+                  </th>
+                  <th>
+                    Delete
+                    <i class="fa fa-fw fa-sort"></i>
+                  </th>
+                  <!-- <th>
+                    Duplicate
+                    <i class="fa fa-fw fa-sort"></i>
+                  </th> -->
+                </tr>
+              </thead>
+              <tbody id="Result_TB">
+                <!-- <tr>
+                  <td>1</td>
+                  <td>Email</td>
+                  <td>Username1</td>
+                  <td>Fullname 1</td>
+                  <td>Accounting</td>
+                  <td>PM</td>
+                  <td>2023-02-03</td>
+                  <td>
+                    <button type="button" class="btn btn-warning">Edit</button>
+                  </td>
+                  <td>
+                    <button type="button" class="btn btn-danger">Delete</button>
+                  </td>
+                </tr> -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <nav aria-label="Page navigation example">
+            <ul class="pagination" id="pagination_id">
+              <!-- <li class="page-item">
+                  <a class="page-link" href="#">Previous</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li> -->
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javaScript" src="./AdminAccount.js"></script>
+  </body>
+</html>
